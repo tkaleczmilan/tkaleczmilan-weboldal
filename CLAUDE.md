@@ -26,12 +26,12 @@ Szolgáltatások, ebben a sorrendben:
 
 ## Teendők
 1. **Valódi képernyőképek a referenciákhoz.** A négy kártyán (polepoint.hu, rabidfox.hu, dartsliga.hu, varazsboci.hu) most csak egy rajzolt „mock” oldal van. Készíts teljes oldalas képernyőképet mindegyikről (Playwright, 1280 px széles), és cseréld le a `.mock` tartalmát egy `<img>`-re úgy, hogy a hover-legörgetés megmaradjon.
-2. **Működő kapcsolati űrlap.** Most csak bemutató. Az üzenetek a tkaleczmilan@gmail.com címre menjenek (pl. Formspree, Web3Forms vagy Vercel függvény + email szolgáltatás). Legyen spamvédelem (honeypot) és GDPR-hozzájárulás jelölőnégyzet.
+2. **Kapcsolati űrlap: kész.** FormSubmit AJAX (formsubmit.co/ajax/tkaleczmilan@gmail.com), honeypot, GDPR-jelölőnégyzet. Az első beküldés után a FormSubmit aktiváló emailt küld, azt Milánnak jóvá kell hagynia.
 3. **Impresszum kitöltése.** A láblécben helyőrzők vannak: székhely, adószám, nyilvántartási szám. Ezeket Milán adja meg.
-4. **Adatkezelési tájékoztató** külön oldalon (az űrlap miatt kell), linkkel a láblécből.
+4. **Adatkezelési tájékoztató: kész** (`adatkezeles.html`), az impresszum-helyőrzőket itt is ki kell tölteni.
 5. **SEO és megosztás: kész.** Cím, leírás, Open Graph, favicon, `ProfessionalService` JSON-LD, sitemap.xml, robots.txt. Domain: tkaleczmilan.hu (beírva).
 6. **Teljesítmény:** képek WebP/AVIF változattal és `srcset`-tel, Lighthouse mobil pontszám 90 fölött.
-7. **Élesítés:** GitHub-tároló, Vercel, saját .hu domain rákötése.
+7. **Élesítés:** GitHub + Vercel kész (tkaleczmilan-weboldal.vercel.app, rabid-fox csapat). Rackhost DNS beállítva (A 216.198.79.1, www CNAME cname.vercel-dns.com), a .hu regisztráció a Rackhostnál adathiba miatt függőben.
 
 ## Ellenőrzés
 Minden változtatás után nézd meg az oldalt 390 px (telefon) és 1280 px széles nézetben, világos és sötét módban is. Ne legyen vízszintes görgetés.

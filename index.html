@@ -347,6 +347,11 @@ textarea{min-height:110px;resize:vertical}
 form .btn{border-color:var(--bg);color:var(--ink);background:var(--bg);justify-content:center}
 form .btn:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .note{font-size:14px;opacity:.85;min-height:1.2em}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+label.consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;opacity:.85;line-height:1.45}
+label.consent input{width:18px;height:18px;flex:none;margin-top:1px;accent-color:var(--accent);padding:0}
+label.consent a{color:inherit}
+form .btn:disabled{opacity:.6;cursor:wait}
 footer{padding-block:36px 48px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:16px}
 footer .imp{display:grid;gap:6px;max-width:68ch}
 footer .imp p{font-size:13.5px;line-height:1.55}
@@ -731,8 +736,10 @@ footer .imp p{font-size:13.5px;line-height:1.55}
         <label for="elerh">Telefon vagy email<input id="elerh" name="elerh" required></label>
         <label for="tema">Téma
           <select id="tema" name="tema"><option>Weboldal</option><option>Számítógép</option><option>Fotózás</option><option>Egyéb IT</option><option>VHS digitalizálás</option></select></label>
-        <label for="uzenet">Üzenet<textarea id="uzenet" name="uzenet"></textarea></label>
-        <button class="btn" type="submit">Küldés <span class="arr">→</span></button>
+        <label for="uzenet">Üzenet<textarea id="uzenet" name="uzenet" required></textarea></label>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="consent" for="gdpr"><input type="checkbox" id="gdpr" name="adatkezeles" value="elfogadva" required><span>Elolvastam és elfogadom az <a href="adatkezeles.html" target="_blank" rel="noopener">adatkezelési tájékoztatót</a>.</span></label>
+        <button class="btn" type="submit" id="sendBtn">Küldés <span class="arr">→</span></button>
         <p class="note" id="note" aria-live="polite"></p>
       </form>
     </div>
@@ -741,7 +748,7 @@ footer .imp p{font-size:13.5px;line-height:1.55}
   <footer class="wrap">
     <div class="imp">
       <span class="mono">Impresszum</span>
-      <p>Tkálecz Milán egyéni vállalkozó · Székhely: [cím] · Adószám: [adószám] · Nyilvántartási szám: [szám] · tkaleczmilan@gmail.com · +36 30 243 6073</p>
+      <p>Tkálecz Milán egyéni vállalkozó · Székhely: [cím] · Adószám: [adószám] · Nyilvántartási szám: [szám] · tkaleczmilan@gmail.com · +36 30 243 6073 · <a href="adatkezeles.html">Adatkezelési tájékoztató</a></p>
     </div>
     <span>© 2026 Tkálecz Milán</span>
   </footer>
@@ -847,9 +854,20 @@ footer .imp p{font-size:13.5px;line-height:1.55}
     document.querySelectorAll('section.bay').forEach(function(s){io.observe(s)});
   }
 
-  document.getElementById('f').addEventListener('submit',function(e){
+  // contact form -> email via FormSubmit
+  var form=document.getElementById('f'),note=document.getElementById('note'),sendBtn=document.getElementById('sendBtn');
+  form.addEventListener('submit',function(e){
     e.preventDefault();
-    document.getElementById('note').textContent='Bemutató űrlap: az élő oldalon ez küldi majd el az üzenetet.';
+    if(form._honey.value)return;
+    var d=new FormData(form);d.delete('_honey');
+    d.append('_subject','Új üzenet a weboldalról: '+(d.get('tema')||''));
+    d.append('_template','table');d.append('_captcha','false');
+    sendBtn.disabled=true;note.textContent='Küldés…';
+    fetch('https://formsubmit.co/ajax/tkaleczmilan@gmail.com',{method:'POST',headers:{'Accept':'application/json'},body:d})
+      .then(function(r){return r.json().then(function(j){if(!r.ok||j.success==='false'||j.success===false)throw new Error(j.message||'hiba');return j})})
+      .then(function(){form.reset();note.textContent='Köszönöm, megkaptam az üzeneted! Hamarosan jelentkezem.'})
+      .catch(function(){note.textContent='Nem sikerült elküldeni. Írj a tkaleczmilan@gmail.com címre, vagy hívj: +36 30 243 6073.'})
+      .finally(function(){sendBtn.disabled=false});
   });
 })();
 </script>
