@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Informatikus, weboldalkészítés és fotózás – Pécs, Komló | Tkálecz Milán</title>
+<meta name="description" content="Weboldalkészítés, számítógép-építés és -javítás, rendszergazdai munkák, fotózás és VHS-digitalizálás Komló és Pécs környékén. Számlaképes vállalkozás. Tel.: +36 30 243 6073">
+<link rel="canonical" href="https://tkaleczmilan.hu/">
+<link rel="icon" href="img/ikon.png">
+<link rel="apple-touch-icon" href="img/ikon.png">
+<meta name="theme-color" content="#2747E0">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="hu_HU">
+<meta property="og:title" content="Tkálecz Milán – webfejlesztés, rendszergazdai munka, fotózás">
+<meta property="og:description" content="Weboldal, számítógép, hálózat, fotó és VHS-digitalizálás Komló és Pécs környékén.">
+<meta property="og:url" content="https://tkaleczmilan.hu/">
+<meta property="og:image" content="https://tkaleczmilan.hu/img/megosztas.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Tkálecz Milán", "description": "Webfejlesztés, számítógép-építés és -javítás, rendszergazdai munkák, fotózás és VHS-digitalizálás Komló és Pécs környékén.", "url": "https://tkaleczmilan.hu/", "image": "https://tkaleczmilan.hu/img/rolam.jpg", "logo": "https://tkaleczmilan.hu/img/ikon.png", "telephone": "+36302436073", "email": "tkaleczmilan@gmail.com", "address": {"@type": "PostalAddress", "addressLocality": "Komló", "addressRegion": "Baranya", "addressCountry": "HU"}, "areaServed": [{"@type": "City", "name": "Komló"}, {"@type": "City", "name": "Pécs"}, {"@type": "AdministrativeArea", "name": "Baranya"}], "sameAs": ["https://rabidfox.hu", "https://www.instagram.com/rabidfox.jpeg/"], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Szolgáltatások", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Weboldalkészítés"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Számítógép-építés és -javítás"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Rendszergazdai szolgáltatás"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Hálózat és szerver beállítása"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fotózás és videókészítés"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "VHS-kazetták digitalizálása"}}]}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one-page workshop sheet — sticky nav, animated hero, three service "bays" with spec-label headers, featured wheel-PC build, extras, about, contact */
+:root{
+  --bg:#F2F4F3; --surface:#FFFFFF; --ink:#14201D; --muted:#5A6763; --line:#D6DDDA;
+  --accent:#2747E0; --accent-ink:#FFFFFF; --warm:#E8622C; --tint:#E6EAFB; --old:#C9C2A8;
+  --f-display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --f-body:"Instrument Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1513; --surface:#172020; --ink:#E7EDEA; --muted:#9AA8A3; --line:#2A3633;
+  --accent:#7D93FF; --accent-ink:#0F1513; --warm:#FF8A5B; --tint:#1C2440; --old:#4A4636; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1513; --surface:#172020; --ink:#E7EDEA; --muted:#9AA8A3; --line:#2A3633;
+  --accent:#7D93FF; --accent-ink:#0F1513; --warm:#FF8A5B; --tint:#1C2440; --old:#4A4636; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+img{display:block}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.08;text-wrap:balance;margin:0}
+p{margin:0}
+.mono{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+.progress{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:3px;width:100%;background:var(--accent);transform-origin:0 50%;transform:scaleX(0);z-index:11}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:20px;padding-block:14px}
+.logo{font-family:var(--f-mono);font-weight:500;font-size:18px;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:2px}
+.logo b{font-weight:500;letter-spacing:.04em;border:2px solid transparent;border-radius:8px;padding:2px 8px;
+  background:linear-gradient(var(--bg),var(--bg)) padding-box,conic-gradient(from var(--la),var(--line) 0deg,var(--line) 250deg,var(--accent) 320deg,var(--line) 360deg) border-box;
+  animation:led 3.2s linear infinite}
+.logo:hover b{animation-duration:1.2s}
+@keyframes led{to{--la:360deg}}
+@property --la{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes blink{50%{opacity:0}}
+.links{display:flex;gap:4px;margin-left:auto}
+.links a{text-decoration:none;font-size:15px;color:var(--muted);white-space:nowrap;padding:6px 10px;border-radius:999px;transition:color .2s,background .2s}
+.links a:hover,.links a.on{color:var(--ink);background:var(--tint)}
+.links a.nav-cta{background:var(--accent);color:var(--accent-ink);font-weight:600;margin-left:8px}
+@media (max-width:1000px){.links a:not(.nav-cta){display:none}}
+
+/* hero */
+.hero{padding-block:76px 56px}
+.idcard{display:flex;align-items:center;gap:16px;margin-bottom:30px}
+.idcard img{width:64px;height:64px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 0 0 3px var(--surface),0 0 0 4px var(--line)}
+.idcode{font-family:var(--f-mono);line-height:1.35;min-width:0}
+.idcode .cmd{font-size:12.5px;color:var(--muted)}
+.idcode .cmd .pr{color:var(--warm)}
+.idcode .out{font-family:var(--f-display);font-weight:700;font-size:22px;color:var(--ink);min-height:1.35em;display:flex;align-items:center;gap:3px}
+.idcode .out .caret{width:9px;height:.9em;background:var(--accent)}
+.idcode .role{font-size:12.5px;color:var(--muted);transition:opacity .4s}
+.hero .eyebrow{margin-bottom:22px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px}
+.eyebrow .ei{display:inline-flex;align-items:center;gap:8px}
+.eyebrow .c{text-transform:none;letter-spacing:.02em;font-size:13.5px;color:var(--ink);text-decoration:none;user-select:all;transition:color .2s}
+.eyebrow .c:hover{color:var(--accent)}
+.eyebrow svg{width:15px;height:15px;fill:var(--accent);flex:none}
+@media (max-width:560px){.hero .eyebrow{flex-direction:column;align-items:flex-start}}
+.dot{width:8px;height:8px;border-radius:50%;background:#2DB36A;animation:ping 2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(45,179,106,.6)}100%{box-shadow:0 0 0 10px rgba(45,179,106,0)}}
+.hero h1{font-size:clamp(34px,6.6vw,78px);font-weight:800;letter-spacing:-.03em;max-width:17ch}
+.hero h1 .w{display:inline-block;animation:rise .8s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 em{font-style:normal;color:var(--accent);position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.02em;height:.09em;background:var(--warm);border-radius:2px;transform-origin:0 50%;animation:draw .9s 1.1s cubic-bezier(.6,0,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(.45em) rotate(2deg)}to{opacity:1;transform:none}}
+@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.hero .fade{animation:rise .8s cubic-bezier(.2,.8,.2,1) both}
+.hero p.lead{margin-top:24px;max-width:58ch;font-size:19px;line-height:1.6;color:var(--muted)}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:1.5px solid var(--ink);font-size:16px;cursor:pointer;background:none;font-family:inherit;color:var(--ink);transition:transform .2s,background .2s,color .2s}
+.btn .arr{transition:transform .25s}
+.btn:hover .arr{transform:translateX(4px)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:not(.primary):hover{background:var(--ink);color:var(--bg)}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);margin-top:56px;border-top:1px solid var(--line)}
+.trio a{padding:18px 18px 4px 0;text-decoration:none;display:flex;flex-direction:column;gap:4px;position:relative}
+.trio a+a{padding-left:18px;border-left:1px solid var(--line)}
+.trio a::before{content:"";position:absolute;top:-1px;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:0 50%;transition:transform .35s}
+.trio a:hover::before{transform:scaleX(1)}
+.trio b{font-family:var(--f-display);font-size:21px;font-weight:700}
+.trio small{color:var(--muted);font-size:14.5px}
+@media (max-width:640px){.trio{grid-template-columns:1fr}.trio a+a{border-left:0;padding-left:0;border-top:1px solid var(--line)}.trio a{padding-bottom:16px}}
+
+@supports (animation-timeline: view()){
+  .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 35%}
+  @keyframes rv{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
+  .progress{animation:prog linear both;animation-timeline:scroll(root)}
+  @keyframes prog{to{transform:scaleX(1)}}
+}
+
+/* sections */
+section.bay{padding-block:80px;border-top:1px solid var(--line)}
+.bay-head{display:grid;grid-template-columns:200px 1fr;gap:28px;margin-bottom:40px}
+.bay-head .tag{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);padding-top:10px}
+.bay-head h2{font-size:clamp(32px,4.6vw,52px);font-weight:700;letter-spacing:-.02em}
+.bay-head p{margin-top:14px;color:var(--muted);max-width:60ch}
+@media (max-width:760px){.bay-head{grid-template-columns:1fr;gap:10px}}
+
+.ph{display:grid;place-items:center;text-align:center;padding:16px;color:var(--muted);font-size:14px;
+  background:repeating-linear-gradient(135deg,var(--tint) 0 10px,transparent 10px 20px)}
+
+/* references */
+.refs{display:grid;grid-template-columns:1fr 1fr;gap:28px 24px}
+@media (max-width:560px){.refs{grid-template-columns:1fr}}
+.ref{text-decoration:none;display:flex;flex-direction:column;gap:12px;min-width:0}
+.browser{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface);transition:border-color .25s,transform .35s,box-shadow .35s}
+.ref:hover .browser{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 18px 40px -22px color-mix(in srgb,var(--accent) 60%,transparent)}
+.browser .bar{display:flex;gap:5px;align-items:center;padding:8px 10px;border-bottom:1px solid var(--line)}
+.browser .bar i{width:7px;height:7px;border-radius:50%;background:var(--line)}
+.browser .bar span{margin-left:8px;font-family:var(--f-mono);font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.viewport{aspect-ratio:16/11;max-width:100%;overflow:hidden;position:relative}
+.page{position:absolute;inset:0 0 auto 0;height:300%;transition:transform 3.2s cubic-bezier(.45,0,.25,1)}
+.ref:hover .page,.ref:focus-visible .page{transform:translateY(-66.6%)}
+.mock{height:100%;display:flex;flex-direction:column;gap:6%;padding:7% 8%;background:var(--surface)}
+.mock .h{height:9%;border-radius:4px;background:var(--hue);display:grid;place-items:center;color:#fff;font-family:var(--f-display);font-weight:700;font-size:13px}
+.mock .l{height:2.2%;border-radius:2px;background:var(--line)}
+.mock .l.s{width:60%}
+.mock .row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6%;height:12%}
+.mock .row i{border-radius:4px;background:color-mix(in srgb,var(--hue) 22%,var(--surface))}
+.mock .big{height:16%;border-radius:4px;background:color-mix(in srgb,var(--hue) 14%,var(--surface));display:grid;place-items:center;font-size:11px;color:var(--muted)}
+.hint{position:absolute;right:8px;bottom:8px;font-family:var(--f-mono);font-size:10.5px;background:var(--ink);color:var(--bg);padding:3px 7px;border-radius:999px;opacity:.85;transition:opacity .3s}
+.ref:hover .hint{opacity:0}
+.ref .tags{display:flex;flex-wrap:wrap;gap:6px}
+.ref .tags span{font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;border:1px solid var(--line);border-radius:999px;padding:3px 9px;color:var(--muted)}
+.ref .tags span.star{border-color:var(--accent);color:var(--accent)}
+.ref h3{font-size:21px;font-weight:700}
+.ref p{font-size:15.5px;color:var(--muted)}
+
+/* before / after */
+.ba{margin-top:56px}
+.ba-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.ba-head h3{font-size:26px;font-weight:700}
+.ba-box{position:relative;aspect-ratio:16/8;max-width:100%;border-radius:14px;overflow:hidden;border:1px solid var(--line);user-select:none;touch-action:pan-y}
+@media (max-width:560px){.ba-box{aspect-ratio:4/5}}
+.ba-side{position:absolute;inset:0;padding:5%;display:flex;flex-direction:column;gap:4%}
+.ba-old{background:var(--old);font-family:"Times New Roman",Times,serif;color:#3a2f1c}
+.ba-old .t{font-size:clamp(18px,3vw,30px);color:#7a0d0d;text-align:center;text-decoration:underline}
+.ba-old .marq{background:#ffef7a;color:#7a0d0d;font-weight:700;text-align:center;padding:4px;font-size:14px;overflow:hidden;white-space:nowrap}
+.ba-old .marq span{display:inline-block;animation:marq 9s linear infinite}
+@keyframes marq{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
+.ba-old .cols{display:grid;grid-template-columns:1fr 2fr;gap:4%;flex:1}
+.ba-old .cols div{border:2px ridge #8a7b55;background:#e9e2c8;padding:8px;font-size:13px}
+.ba-new{background:var(--surface);clip-path:inset(0 0 0 var(--pos,50%))}
+.ba-new .nv{display:flex;justify-content:space-between;align-items:center;font-family:var(--f-display);font-weight:700}
+.ba-new .nv span{background:var(--accent);color:var(--accent-ink);font-size:12px;padding:5px 12px;border-radius:999px;font-family:var(--f-body)}
+.ba-new .hh{font-family:var(--f-display);font-weight:800;font-size:clamp(22px,4vw,44px);letter-spacing:-.02em;line-height:1.05;max-width:12ch}
+.ba-new .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:3%;flex:1}
+.ba-new .cards i{border-radius:10px;background:var(--tint)}
+.ba-new .cta{display:flex;gap:10px}
+.ba-new .cta b{background:var(--ink);color:var(--bg);font-size:12px;padding:7px 14px;border-radius:999px;font-weight:600}
+.ba-handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:2px;background:var(--accent);transform:translateX(-1px);pointer-events:none}
+.ba-handle::after{content:"‹ ›";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:700;font-size:16px;letter-spacing:2px;box-shadow:0 6px 18px -6px rgba(0,0,0,.4)}
+.ba-label{position:absolute;top:12px;font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;background:var(--ink);color:var(--bg);padding:4px 9px;border-radius:999px}
+.ba-label.l{left:12px}.ba-label.r{right:12px}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+
+/* offer */
+.offer{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+@media (max-width:760px){.offer{grid-template-columns:1fr}}
+.offer>div{padding:30px;min-width:0}
+.offer .deal{border-right:1px solid var(--line);display:flex;flex-direction:column;gap:14px}
+@media (max-width:760px){.offer .deal{border-right:0;border-bottom:1px solid var(--line)}}
+.deal h3{font-size:30px;font-weight:800;letter-spacing:-.02em}
+.deal p{color:var(--muted);font-size:15.5px}
+.steps{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:28px 1fr;gap:10px;font-size:15.5px;align-items:baseline;counter-increment:s}
+.steps li::before{content:counter(s);font-family:var(--f-mono);font-size:12px;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--accent);color:var(--accent);display:grid;place-items:center}
+ul.check{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+ul.check li{display:grid;grid-template-columns:20px 1fr;gap:10px;font-size:15.5px}
+ul.check li::before{content:"";width:14px;height:8px;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg);margin-top:6px}
+
+/* pc */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:760px){.split{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;min-width:0}
+.panel h3{font-size:22px;font-weight:700;margin-bottom:6px}
+.panel .mono{margin-bottom:16px;display:block}
+.term{margin-top:20px;background:var(--ink);color:var(--bg);border-radius:12px;padding:18px 20px;font-family:var(--f-mono);font-size:13px;line-height:1.8;overflow-x:auto;min-height:140px}
+.term .p{color:var(--warm)}
+.term .ok{color:#59D08F}
+.caret{display:inline-block;width:8px;height:1em;background:currentColor;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+
+/* featured build */
+.feature{margin-top:56px;display:grid;grid-template-columns:1.25fr 1fr;gap:32px;align-items:start}
+@media (max-width:860px){.feature{grid-template-columns:1fr}}
+.stage{position:relative;border-radius:14px;overflow:hidden;background:#0b0b0b;aspect-ratio:3/4;max-width:100%;cursor:zoom-in}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s,transform 6s ease-out}
+.stage:hover img.cur{transform:scale(1.04)}
+.stage img:not(.cur){opacity:0}
+.stage .glow{position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(to top,rgba(0,0,0,.55),transparent);pointer-events:none}
+.stage .cap{position:absolute;left:16px;bottom:14px;color:#fff;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase}
+.thumbs{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:10px}
+.thumbs button{all:unset;cursor:pointer;border-radius:8px;overflow:hidden;aspect-ratio:3/4;outline:2px solid transparent;outline-offset:2px;transition:outline-color .2s,opacity .2s;opacity:.6}
+.thumbs button.on,.thumbs button:hover{opacity:1}
+.thumbs button.on{outline-color:var(--warm)}
+.thumbs button:focus-visible{outline-color:var(--accent)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.feature-text .mono{color:var(--warm);margin-bottom:6px;display:block}
+.feature-text .kicker{display:block;color:var(--muted);font-size:16px;margin-bottom:12px}
+.feature-text h3{font-size:clamp(28px,3.6vw,42px);font-weight:800;letter-spacing:-.02em}
+.feature-text p{margin-top:16px;color:var(--muted);max-width:46ch}
+.feature-text ul.check{margin-top:22px}
+.builds{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+@media (max-width:760px){.builds{grid-template-columns:1fr 1fr}}
+.builds button{all:unset;cursor:zoom-in;border-radius:10px;overflow:hidden;aspect-ratio:3/4;display:block;background:var(--surface)}
+.builds button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.builds img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.builds button:hover img{transform:scale(1.05)}
+
+/* photo */
+.photo-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:22px}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 8px;border:1px solid var(--line);border-radius:999px;background:var(--surface);text-decoration:none;font-weight:600;transition:border-color .2s}
+.badge:hover{border-color:var(--warm)}
+.badge .bi{width:28px;height:28px;border-radius:50%;object-fit:cover;flex:none;display:grid;place-items:center;background:#fff;box-shadow:0 0 0 1px var(--line)}
+.badge .ig{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%);box-shadow:none}
+.badge .ig svg{width:17px;height:17px}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gallery button{all:unset;cursor:zoom-in;border-radius:8px;overflow:hidden;display:block;aspect-ratio:2/3;background:var(--surface)}
+.gallery button.wide{grid-column:1/-1;aspect-ratio:21/9}
+.gallery button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.gallery button:hover img{transform:scale(1.04)}
+@media (max-width:560px){.gallery{gap:6px}.gallery button.wide{aspect-ratio:3/2}}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:20;background:rgba(8,12,11,.94);display:grid;place-items:center;padding:max(56px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(24px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));animation:fadein .25s}
+@keyframes fadein{from{opacity:0}}
+.lb img{max-width:100%;max-height:100%;border-radius:8px;animation:rise .35s}
+.lb button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:calc(16px + env(safe-area-inset-right,0px));font:600 15px var(--f-body);background:#fff;color:#14201D;border:0;border-radius:999px;padding:9px 16px;cursor:pointer}
+
+/* other */
+.other{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.other div{padding:18px 16px 18px 0;border-bottom:1px solid var(--line);transition:padding-left .25s}
+.other div:hover{padding-left:8px}
+.other b{display:block;font-weight:600}
+.usecase-head{margin-top:56px;display:grid;gap:8px}
+.usecase-head .mono{color:var(--accent)}
+.usecase-head h3{font-size:clamp(26px,3.4vw,36px);font-weight:700;letter-spacing:-.02em}
+.usecase-head p{color:var(--muted);max-width:60ch}
+.usecases{margin-top:22px;display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.vhs .reel{transform-box:fill-box;transform-origin:center;animation:reel 2.4s linear infinite}
+@keyframes reel{to{transform:rotate(360deg)}}
+.tv{display:grid;gap:8px;justify-items:center}
+.tv-screen{position:relative;width:240px;max-width:100%;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#0b0f0e;box-shadow:0 0 0 6px color-mix(in srgb,var(--ink) 14%,transparent),0 12px 30px -14px rgba(0,0,0,.6)}
+.tv-img{position:absolute;inset:0;background:
+  radial-gradient(circle at 72% 30%,#ffd27a 0 9%,transparent 10%),
+  linear-gradient(to top,#2f6b3a 0 28%,transparent 28%),
+  radial-gradient(ellipse at 30% 78%,#3d8a4a 0 30%,transparent 31%),
+  linear-gradient(#7fb6e6,#cfe6f5 70%);
+  animation:tvimg 6s ease-in-out infinite}
+.tv-img::after{content:"";position:absolute;left:34%;bottom:22%;width:14%;height:30%;border-radius:40% 40% 10% 10%;background:#c0573a;box-shadow:24px 6px 0 -4px #e0a03a}
+.tv-noise{position:absolute;inset:-50%;background:repeating-linear-gradient(0deg,rgba(255,255,255,.14) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(0,0,0,.18) 0 2px,transparent 2px 5px);animation:noise .25s steps(3) infinite,tvfade 6s ease-in-out infinite}
+.tv-track{position:absolute;left:0;right:0;height:14%;top:20%;background:linear-gradient(transparent,rgba(255,255,255,.55),transparent);mix-blend-mode:screen;animation:track 1.6s linear infinite,tvfade 6s ease-in-out infinite}
+.tv-osd{position:absolute;font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.06em;color:#fff;text-shadow:0 0 4px rgba(0,0,0,.7)}
+.tv-play{top:9px;left:11px;animation:tvfade 6s ease-in-out infinite}
+.tv-time{top:9px;right:11px;animation:tvfade 6s ease-in-out infinite}
+.tv-done{top:9px;left:11px;background:#2DB36A;padding:2px 7px;border-radius:999px;text-shadow:none;opacity:0;animation:tvshow 6s ease-in-out infinite}
+.tv-bar{position:absolute;left:11px;right:11px;bottom:10px;height:4px;border-radius:2px;background:rgba(255,255,255,.25);overflow:hidden}
+.tv-bar i{display:block;height:100%;width:100%;background:var(--warm);transform-origin:0 50%;animation:tvbar 6s ease-in-out infinite}
+.tv-cap{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);position:relative;height:1.4em;width:100%;text-align:center}
+.tv-cap b{font-weight:500;position:absolute;inset:0}
+.tv-cap .c-a{animation:tvfade 6s ease-in-out infinite}
+.tv-cap .c-b{color:var(--accent);opacity:0;animation:tvshow 6s ease-in-out infinite}
+@keyframes noise{0%{transform:translate(0,0)}33%{transform:translate(-3%,2%)}66%{transform:translate(2%,-3%)}}
+@keyframes track{from{top:-15%}to{top:105%}}
+@keyframes tvimg{0%,55%{filter:saturate(.45) contrast(.8) blur(.6px) hue-rotate(-12deg);transform:skewX(-2deg) scale(1.04)}70%,100%{filter:none;transform:none}}
+@keyframes tvfade{0%,55%{opacity:1}68%,100%{opacity:0}}
+@keyframes tvshow{0%,62%{opacity:0}74%,100%{opacity:1}}
+@keyframes tvbar{0%{transform:scaleX(0)}65%,100%{transform:scaleX(1)}}
+.vhs{margin-top:40px;display:grid;grid-template-columns:auto 1fr auto auto;gap:28px;align-items:center;padding:26px 28px;border-radius:16px;background:var(--tint)}
+.vhs-ic{width:72px;color:var(--warm)}
+.vhs-ic svg{width:100%;height:auto;display:block}
+.bay-head p.punch{margin-top:12px;color:var(--ink);font-family:var(--f-display);font-weight:700;font-size:20px;line-height:1.3}
+.vhs-tag{display:block;color:var(--warm);margin-bottom:6px}
+.vhs-list{gap:8px}
+.vhs h3{font-size:24px;font-weight:700;margin-bottom:6px}
+.vhs p{color:var(--muted);max-width:62ch;font-size:15.5px}
+.vhs>div{min-width:0}
+@media (max-width:900px){.vhs{grid-template-columns:auto 1fr}.vhs .tv{grid-column:1/-1}.vhs .btn{grid-column:1/-1;justify-self:start}}
+@media (max-width:700px){.vhs{grid-template-columns:1fr;gap:16px}}
+@media (max-width:860px){.usecases{grid-template-columns:1fr}}
+.uc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;min-width:0;display:grid;gap:10px;align-content:start;transition:border-color .25s,transform .3s}
+.uc:hover{border-color:var(--accent);transform:translateY(-3px)}
+.uc-ic{width:44px;height:44px;border-radius:12px;background:var(--tint);display:grid;place-items:center}
+.uc-ic svg{width:24px;height:24px;fill:var(--accent)}
+.uc h4{font-family:var(--f-display);font-size:20px;font-weight:700;margin:0;line-height:1.2}
+.uc p{font-size:15.5px;color:var(--muted)}
+.other span{font-size:14.5px;color:var(--muted)}
+@media (max-width:760px){.other{grid-template-columns:1fr 1fr}}
+.referral{margin-top:28px;padding:20px 24px;border-radius:14px;background:var(--tint)}
+.referral b{font-family:var(--f-display);font-weight:700;font-size:20px;display:block;margin-bottom:4px}
+
+/* about */
+.about{display:grid;grid-template-columns:220px 1fr;gap:36px;align-items:start}
+@media (max-width:640px){.about{grid-template-columns:1fr}}
+.about .portrait{aspect-ratio:1;border-radius:50%;max-width:220px;width:100%;height:auto;object-fit:cover;box-shadow:0 0 0 6px var(--surface),0 0 0 7px var(--line)}
+.about p{max-width:60ch}
+.hello{font-size:clamp(44px,6.4vw,72px);font-weight:800;letter-spacing:-.03em;margin-bottom:18px;display:flex;align-items:center;gap:.2em}
+.wave{display:inline-block;transform-origin:70% 80%;animation:wave 4s ease-in-out .5s infinite}
+.about:hover .wave{animation-duration:1.6s}
+@keyframes wave{0%,36%,100%{transform:rotate(0)}6%,18%{transform:rotate(18deg)}12%{transform:rotate(-8deg)}24%{transform:rotate(-4deg)}30%{transform:rotate(12deg)}}
+
+/* contact */
+.contact{background:var(--ink);color:var(--bg);border-radius:20px;padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:40px;position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 45%,transparent),transparent 70%);top:-160px;right:-120px;animation:float 9s ease-in-out infinite alternate;pointer-events:none}
+@keyframes float{to{transform:translate(-80px,60px)}}
+@media (max-width:760px){.contact{grid-template-columns:1fr;padding:28px}}
+.contact>*{position:relative;min-width:0}
+.contact h2{font-size:clamp(32px,4.6vw,48px);font-weight:800;letter-spacing:-.02em}
+.contact .sub{margin-top:12px;opacity:.75}
+.lines{margin-top:28px;display:grid;gap:14px}
+.line{display:flex;justify-content:space-between;gap:12px;align-items:baseline;border-bottom:1px solid color-mix(in srgb,var(--bg) 22%,transparent);padding-bottom:12px;flex-wrap:wrap}
+.line .mono{color:inherit;opacity:.6}
+.line .v{font-family:var(--f-display);font-size:20px;font-weight:700;user-select:all;overflow-wrap:anywhere}
+form{display:grid;gap:12px;align-content:start}
+label{font-size:13px;opacity:.8;display:grid;gap:6px}
+input,select,textarea{font:inherit;font-size:16px;padding:12px 14px;border-radius:10px;border:1px solid color-mix(in srgb,var(--bg) 25%,transparent);background:color-mix(in srgb,var(--bg) 8%,transparent);color:var(--bg);width:100%;transition:border-color .2s}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);outline:none}
+select option{color:#14201D}
+textarea{min-height:110px;resize:vertical}
+form .btn{border-color:var(--bg);color:var(--ink);background:var(--bg);justify-content:center}
+form .btn:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.note{font-size:14px;opacity:.85;min-height:1.2em}
+footer{padding-block:36px 48px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:16px}
+footer .imp{display:grid;gap:6px;max-width:68ch}
+footer .imp p{font-size:13.5px;line-height:1.55}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Tkálecz Milán, vissza az oldal tetejére"><b>TM</b></a>
+    <div class="links">
+      <a href="#web">Weboldalak</a>
+      <a href="#gep">Számítógépek</a>
+      <a href="#foto">Fotózás</a>
+      <a href="#vhs">Digitalizálás</a>
+      <a href="#egyeb">Egyéb IT</a>
+      <a href="#rolam">Rólam</a>
+      <a class="nav-cta" href="#kapcsolat">Kapcsolat</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+  <header class="hero wrap">
+    <div class="idcard fade" style="animation-delay:0s">
+      <img src="img/rolam.jpg" alt="Tkálecz Milán" width="640" height="640">
+      <div class="idcode" aria-label="Tkálecz Milán: rendszergazdai feladatok, webfejlesztés, fotós munkák, videódigitalizálás">
+        <div class="cmd" aria-hidden="true"><span class="pr">&gt;</span> <span id="idCmd">whoami</span></div>
+        <div class="out" aria-hidden="true"><span id="idName">Tkálecz Milán</span><span class="caret" id="idCaret"></span></div>
+        <div class="role" id="idRole" aria-hidden="true">rendszergazdai feladatok · webfejlesztés · fotós munkák · videódigitalizálás</div>
+      </div>
+    </div>
+    <div class="mono fade eyebrow" style="animation-delay:.05s">
+      <span class="ei"><span class="dot"></span>Komló · Pécs és környéke</span>
+      <a class="ei c" href="tel:+36302436073"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>+36 30 243 6073</a>
+      <a class="ei c" href="mailto:tkaleczmilan@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.4V17h16V7.4l-8 5.3zM5.2 7 12 11.5 18.8 7z"/></svg>tkaleczmilan@gmail.com</a>
+    </div>
+    <h1>
+      <span class="w" style="animation-delay:.15s">Webfejlesztés,</span>
+      <span class="w" style="animation-delay:.28s">rendszergazdai</span>
+      <span class="w" style="animation-delay:.38s">munka,</span>
+      <span class="w" style="animation-delay:.5s">fotózás.</span>
+      <span class="w" style="animation-delay:.72s"><em>Egy helyen.</em></span>
+    </h1>
+    <p class="lead fade" style="animation-delay:1s">Vállalkozásodnak weboldal kell, a géped javításra szorul, vagy jó képekre van szükséged? Webfejlesztéssel, számítógépek összeszerelésével és karbantartásával, valamint rendszergazdai feladatokkal foglalkozom. A RabidFox csapatával fotózást, videókészítést és képszerkesztést is vállalunk. A régi családi videókat pedig átmentem digitális formába.</p>
+    <div class="btns fade" style="animation-delay:1.15s">
+      <a class="btn primary" href="#kapcsolat">Ajánlatot kérek <span class="arr">→</span></a>
+      <a class="btn" href="#web">Munkáim <span class="arr">↓</span></a>
+    </div>
+    <div class="trio fade" style="animation-delay:1.3s">
+      <a href="#web"><b>Weboldalak</b><small>Készítés és karbantartás</small></a>
+      <a href="#gep"><b>Számítógépek</b><small>Hardver és szoftver</small></a>
+      <a href="#foto"><b>Fotózás</b><small>RabidFox</small></a>
+    </div>
+  </header>
+
+  <section class="bay" id="web">
+    <div class="wrap">
+      <div class="bay-head rv">
+        <div class="tag">01 · Weboldalak</div>
+        <div>
+          <h2>Gyors, mobilbarát weboldalak</h2>
+          <p>Olyan weboldalt készítek, amely telefonon és számítógépen is jól használható, és világosan megmutatja, mivel foglalkozol. Az elkészítés után is számíthatsz rám: kérésre frissítem a tartalmat és karbantartom az oldalt.</p>
+        </div>
+      </div>
+
+      <div class="refs">
+        <a class="ref rv" href="https://polepoint.hu" target="_blank" rel="noopener" style="--hue:#D7262E">
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>polepoint.hu</span></div>
+            <div class="viewport"><div class="page"><div class="mock">
+              <div class="h">PolePoint</div><div class="l"></div><div class="l s"></div><div class="big">Képernyőkép helye</div>
+              <div class="row"><i></i><i></i><i></i></div><div class="l"></div><div class="l s"></div><div class="big"></div><div class="row"><i></i><i></i><i></i></div><div class="l s"></div>
+            </div></div><span class="hint">vidd rá az egeret</span></div></div>
+          <div class="tags"><span class="star">Saját fejlesztés</span><span>Webalkalmazás</span></div>
+          <h3>PolePoint – Forma–1 tippjáték</h3>
+          <p>Regisztráció, tippelés, automatikus pontozás, ranglista és privát ligák. A tipp- és pontozási rendszer saját fejlesztésű WordPress-bővítmény.</p>
+        </a>
+        <a class="ref rv" href="https://rabidfox.hu" target="_blank" rel="noopener" style="--hue:#E8622C">
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>rabidfox.hu</span></div>
+            <div class="viewport"><div class="page"><div class="mock">
+              <div class="h">RabidFox</div><div class="big">Képernyőkép helye</div><div class="l"></div><div class="l s"></div>
+              <div class="row"><i></i><i></i><i></i></div><div class="big"></div><div class="l"></div><div class="row"><i></i><i></i><i></i></div><div class="l s"></div>
+            </div></div><span class="hint">vidd rá az egeret</span></div></div>
+          <div class="tags"><span>Portfólió</span><span>Galéria</span></div>
+          <h3>RabidFox</h3>
+          <p>Fotós-videós csapat oldala szolgáltatásokkal, galériával, árlistával és csapatbemutatóval.</p>
+        </a>
+        <a class="ref rv" href="https://dartsliga.hu" target="_blank" rel="noopener" style="--hue:#1F8A5B">
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>dartsliga.hu</span></div>
+            <div class="viewport"><div class="page"><div class="mock">
+              <div class="h">Dartsliga</div><div class="l"></div><div class="row"><i></i><i></i><i></i></div><div class="big">Képernyőkép helye</div>
+              <div class="l s"></div><div class="big"></div><div class="row"><i></i><i></i><i></i></div><div class="l"></div><div class="l s"></div>
+            </div></div><span class="hint">vidd rá az egeret</span></div></div>
+          <div class="tags"><span class="star">Saját fejlesztés</span><span class="star">Saját szerveren</span><span>Webalkalmazás</span></div>
+          <h3>DartsLiga – webes dartsplatform</h3>
+          <p>Darts bajnokságok lebonyolítása a weben: csatlakozás kóddal, meccsrögzítés, automatikus pontszámítás, átlagok és statisztikák, PIN-kódos belépés.</p>
+        </a>
+        <a class="ref rv" href="https://varazsboci.hu" target="_blank" rel="noopener" style="--hue:#C2559B">
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>varazsboci.hu</span></div>
+            <div class="viewport"><div class="page"><div class="mock">
+              <div class="h">VarázsBoci</div><div class="big">Képernyőkép helye</div><div class="row"><i></i><i></i><i></i></div><div class="l"></div>
+              <div class="l s"></div><div class="big"></div><div class="l"></div><div class="row"><i></i><i></i><i></i></div><div class="l s"></div>
+            </div></div><span class="hint">vidd rá az egeret</span></div></div>
+          <div class="tags"><span>Vállalkozás</span><span>Online foglalás</span></div>
+          <h3>VarázsBoci Kutyakozmetika</h3>
+          <p>Veszprémi kutyakozmetika oldala szolgáltatásokkal, online foglalással, kapcsolati űrlappal és térképpel.</p>
+        </a>
+      </div>
+
+      <div class="ba rv" hidden><!-- Előtte-utána: akkor kapcsoljuk vissza, amikor lesz valódi példa --> 
+        <div class="ba-head">
+          <h3>Előtte és utána</h3>
+          <span class="mono">Példa · húzd a csúszkát</span>
+        </div>
+        <div class="ba-box" id="ba">
+          <div class="ba-side ba-old">
+            <div class="t">Üdvözöljük honlapunkon!!!</div>
+            <div class="marq"><span>*** AKCIÓ *** Hívjon most *** Nyitvatartás lent *** Látogatók száma: 004217 ***</span></div>
+            <div class="cols"><div>Menü<br>» Rólunk<br>» Szolgáltatások<br>» Galéria<br>» Kapcsolat</div><div>Az oldal felújítás alatt. Kérjük nézzen vissza később. Legjobb megjelenítés 1024×768 felbontásban.</div></div>
+          </div>
+          <div class="ba-side ba-new">
+            <div class="nv">Vállalkozás neve<span>Időpontfoglalás</span></div>
+            <div class="hh">Gyors, modern, mobilon is.</div>
+            <div class="cta"><b>Hívás</b><b style="background:var(--accent);color:var(--accent-ink)">Foglalás</b></div>
+            <div class="cards"><i></i><i></i><i></i></div>
+          </div>
+          <span class="ba-label l">Régi</span><span class="ba-label r">Új</span>
+          <div class="ba-handle"></div>
+          <input type="range" id="baRange" min="0" max="100" value="50" aria-label="Előtte és utána összehasonlítás">
+        </div>
+      </div>
+
+      <div class="offer rv">
+        <div class="deal">
+          <div class="mono">Árazás</div>
+          <h3>Megbeszélés alapján</h3>
+          <p>Először átbeszéljük az igényeket és a feladatot, utána személyre szabott ajánlatot adok.</p>
+          <div class="mono" style="margin-top:10px">Hogyan dolgozunk együtt?</div>
+          <ol class="steps">
+            <li><span>Megbeszéljük, mire van szükséged.</span></li>
+            <li><span>Készítek egy mintát, hogy lásd az irányt.</span></li>
+            <li><span>Elindítjuk az oldalt, miután minden részlet a helyére került.</span></li>
+            <li><span>Karbantartom, ha később is szeretnél segítséget.</span></li>
+          </ol>
+        </div>
+        <div>
+          <div class="mono" style="margin-bottom:16px">Amiben segítek</div>
+          <ul class="check">
+            <li>Egyedi, mobilbarát weboldal</li>
+            <li>Domain és tárhely ügyintézése</li>
+            <li>Tartalomfrissítés: árak, nyitvatartás, képek</li>
+            <li>Meglévő oldal felújítása</li>
+            <li>Egyedi funkciók, pl. regisztráció, ranglista</li>
+            <li>Online időpontfoglalás</li>
+            <li>Fotók az oldalhoz</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bay" id="gep">
+    <div class="wrap">
+      <div class="bay-head rv">
+        <div class="tag">02 · Számítógépek</div>
+        <div>
+          <h2>Építés, javítás és beállítás</h2>
+          <p>Új gépet szeretnél, bővítenéd a meglévőt, vagy valami nem működik rendesen? Segítek kiválasztani az alkatrészeket, összerakom vagy megjavítom a gépet, és a szükséges szoftveres beállításokat is elvégzem.</p>
+        </div>
+      </div>
+
+      <div class="split">
+        <div class="panel rv">
+          <h3>Hardver</h3>
+          <span class="mono">Alkatrész · szerelés · javítás</span>
+          <ul class="check">
+            <li>Gépépítés az igényeid és a kereted szerint</li>
+            <li>Alkatrészválasztás és beszerzés</li>
+            <li>Bővítés: memória, SSD, videokártya vagy hűtés</li>
+            <li>Hibakeresés és javítás</li>
+            <li>Tisztítás és hővezetőpaszta-csere</li>
+          </ul>
+        </div>
+        <div class="panel rv">
+          <h3>Rendszer és programok</h3>
+          <span class="mono">Rendszer · programok · adatok</span>
+          <ul class="check">
+            <li>Windows telepítése és illesztőprogramok beállítása</li>
+            <li>Lassú számítógép átvizsgálása és gyorsítása</li>
+            <li>Vírus- és kártevő-ellenőrzés</li>
+            <li>Adatmentés és adatátvitel régi gépről</li>
+            <li>Programok, fiókok és nyomtatók beállítása</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="term rv" id="term" aria-label="Példa egy gép átadás előtti ellenőrzésére"></div>
+
+      <div class="feature">
+        <div class="rv">
+          <div class="stage" id="stage" role="button" tabindex="0" aria-label="Kép nagyítása">
+            <img class="cur" src="img/kerek-1.jpg" alt="Autófelnibe épített számítógép piros világítással" width="1050" height="1400">
+            <img src="img/kerek-2.jpg" alt="A felnis gép oldalról" width="1050" height="1400" loading="lazy">
+            <img src="img/kerek-3.jpg" alt="Közeli kép az alaplapról a felni küllői között" width="1050" height="1400" loading="lazy">
+            <img src="img/kerek-4.jpg" alt="A gép hátulja a tápegységgel" width="1050" height="1400" loading="lazy">
+            <img src="img/kerek-5.jpg" alt="A felni világítás nélkül" width="1050" height="1400" loading="lazy">
+            <img src="img/kerek-6.jpg" alt="Részlet a belső világításról" width="1050" height="1400" loading="lazy">
+            <div class="glow"></div>
+            <span class="cap" id="cap">1 / 6</span>
+          </div>
+          <div class="thumbs" id="thumbs">
+            <button class="on" aria-label="1. kép"><img src="img/kerek-1.jpg" alt="" loading="lazy"></button>
+            <button aria-label="2. kép"><img src="img/kerek-2.jpg" alt="" loading="lazy"></button>
+            <button aria-label="3. kép"><img src="img/kerek-3.jpg" alt="" loading="lazy"></button>
+            <button aria-label="4. kép"><img src="img/kerek-4.jpg" alt="" loading="lazy"></button>
+            <button aria-label="5. kép"><img src="img/kerek-5.jpg" alt="" loading="lazy"></button>
+            <button aria-label="6. kép"><img src="img/kerek-6.jpg" alt="" loading="lazy"></button>
+          </div>
+        </div>
+        <div class="feature-text rv">
+          <span class="mono">Egyedi építés</span>
+          <span class="kicker">Ha valami másra vágynál, vagy különleges ötleted van</span>
+          <h3>Felni PC</h3>
+          <p>Ennél az építésnél a számítógép egy matt fekete felnibe került, a küllők között piros LED-világítással. A szokatlan forma miatt az alkatrészek elhelyezését, a kábelezést és a világítást is külön kellett megtervezni.</p>
+          <ul class="check">
+            <li>Alkatrészek elhelyezése a felniben</li>
+            <li>Kábelezés és tápellátás</li>
+            <li>LED-világítás</li>
+            <li>Rendszer telepítése és beállítása</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="builds rv" id="builds">
+        <button aria-label="Kép nagyítása"><img src="img/gep-1.jpg" alt="Összeszerelt gép Radeon videókártyával" loading="lazy"></button>
+        <button aria-label="Kép nagyítása"><img src="img/gep-amd.jpg" alt="Összeszerelt gép AMD processzorhűtővel és ASUS ROG Strix videókártyával" loading="lazy"></button>
+        <button aria-label="Kép nagyítása"><img src="img/gep-3.jpg" alt="Nyitott gépház szerelés közben" loading="lazy"></button>
+        <button aria-label="Kép nagyítása"><img src="img/laptop-javitas.jpg" alt="Szétszedett laptop javítás közben" loading="lazy"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="bay" id="foto">
+    <div class="wrap">
+      <div class="bay-head rv">
+        <div class="tag">03 · Fotózás</div>
+        <div>
+          <h2>Fotózás a RabidFox csapatával</h2>
+          <p>A RabidFox keretében fotózással, videókészítéssel és digitális tartalomgyártással foglalkozunk. Legyen szó családi, céges vagy közösségi rendezvényekről, sporteseményekről, portrékról vagy egyedi kreatív projektekről, célunk, hogy minden fontos pillanatot igényesen és kreatívan örökítsünk meg.</p>
+          <p>Szolgáltatásaink közé tartozik a rendezvény- és eseményfotózás, portré- és üzleti fotózás, termékfotózás, valamint reklám- és promóciós videók készítése. Emellett vállalunk képszerkesztést, videóvágást és különböző online felületekre szánt vizuális tartalmak elkészítését is.</p>
+        </div>
+      </div>
+      <div class="photo-head rv">
+        <a class="badge" href="https://rabidfox.hu" target="_blank" rel="noopener"><img class="bi" src="img/rabidfox-logo.jpg" alt="" width="28" height="28">rabidfox.hu</a>
+        <a class="badge" href="https://www.instagram.com/rabidfox.jpeg/" target="_blank" rel="noopener"><span class="bi ig" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.2" fill="none" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.25" fill="#fff"/></svg></span>rabidfox.jpeg</a>
+      </div>
+      <div class="gallery rv" id="gal">
+        <button aria-label="Kép nagyítása"><img src="img/foto-auto-1.jpg" alt="Ezüst Fiat Bravo kanyargós erdei úton, őszi lombok között" loading="lazy"></button>
+        <button aria-label="Kép nagyítása"><img src="img/foto-auto-2.jpg" alt="A Fiat Bravo hátulja őszi erdőben, előtérben elmosódó levelekkel" loading="lazy"></button>
+        <button aria-label="Kép nagyítása"><img src="img/foto-gemek.jpg" alt="Két szürke gém egy kiszáradt fa ágain" loading="lazy"></button>
+        <button class="wide" aria-label="Kép nagyítása"><img src="img/foto-siraly.jpg" alt="Repülő sirály a tenger felett" loading="lazy"></button>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="bay" id="vhs">
+    <div class="wrap">
+      <div class="bay-head rv">
+        <div class="tag">04 · Digitalizálás</div>
+        <div>
+          <h2>VHS-kazetták digitalizálása</h2>
+          <p>A régi családi felvételeket átmentem a kazettáról digitális fájlba, hogy gépen, telefonon vagy tévén is vissza lehessen nézni őket, és ne menjenek tönkre a kazettával együtt. Ha szeretnéd, egy otthoni médiaszerverre is felteszem őket, így bárhonnan elérheted a felvételeket.</p>
+          <p class="punch">A videómagnó már rég nyugdíjba ment, az emlékeid még ne menjenek.</p>
+        </div>
+      </div>
+      <div class="vhs rv">
+        <div class="vhs-ic" aria-hidden="true"><svg viewBox="0 0 48 30"><rect x="1.5" y="1.5" width="45" height="27" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="9" y="8" width="30" height="11" rx="5.5" fill="none" stroke="currentColor" stroke-width="2.2"/><g class="reel"><circle cx="15.5" cy="13.5" r="3.4" fill="currentColor"/><path d="M15.5 11v5M13 13.5h5" stroke="var(--tint)" stroke-width="1.1"/></g><g class="reel"><circle cx="32.5" cy="13.5" r="3.4" fill="currentColor"/><path d="M32.5 11v5M30 13.5h5" stroke="var(--tint)" stroke-width="1.1"/></g><rect x="14" y="22" width="20" height="3" rx="1.5" fill="currentColor"/></svg></div>
+        <ul class="check vhs-list">
+          <li>Családi és régi felvételek VHS-kazettáról</li>
+          <li>Digitális videófájl, ami bármin lejátszható</li>
+          <li>Visszanézhető gépen, telefonon és tévén</li>
+          <li>Kérésre médiaszerveren, bárhonnan elérhetően</li>
+        </ul>
+        <div class="tv" aria-hidden="true">
+          <div class="tv-screen">
+            <div class="tv-img"></div>
+            <div class="tv-noise"></div>
+            <div class="tv-track"></div>
+            <span class="tv-osd tv-play">▶ PLAY</span>
+            <span class="tv-osd tv-time">00:14:07</span>
+            <span class="tv-osd tv-done">✓ DIGITÁLIS</span>
+            <div class="tv-bar"><i></i></div>
+          </div>
+          <span class="tv-cap"><b class="c-a">Kazetta</b><b class="c-b">Digitális fájl</b></span>
+        </div>
+        <a class="btn" href="#kapcsolat" data-tema="VHS digitalizálás">Érdekel <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bay" id="egyeb">
+    <div class="wrap">
+      <div class="bay-head rv">
+        <div class="tag">05 · Egyéb IT</div>
+        <div>
+          <h2>Hálózat, szerver és rendszeres karbantartás</h2>
+          <p>Otthoni vagy vállalkozási informatikai környezeted beállításában és karbantartásában is segítek.</p>
+        </div>
+      </div>
+      <div class="other rv">
+        <div><b>Szerverek</b><span>Fájlmegosztás és weboldal-üzemeltetés.</span></div>
+        <div><b>Adatmentés</b><span>NAS és automatikus mentési megoldások.</span></div>
+        <div><b>Hálózat és wifi</b><span>Router, switch és vezeték nélküli lefedettség beállítása.</span></div>
+        <div><b>Karbantartás</b><span>Rendszeres ellenőrzés és frissítés.</span></div>
+      </div>
+
+      <div class="usecase-head rv">
+        <span class="mono">Saját rendszerem</span>
+        <h3>Mit tud egy otthoni szerver?</h3>
+        <p>Ezeket nálam otthon is így használom, és nálad is be tudom állítani.</p>
+      </div>
+      <div class="usecases">
+        <div class="uc rv">
+          <div class="uc-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2v9h16V7zm6 1.5 5 3-5 3z"/></svg></div>
+          <h4>Saját streaming otthonra</h4>
+          <p>A filmek, sorozatok és zenék egy otthoni tárolón (NAS) vannak, a Plex médiaszerver pedig rendezett könyvtárba teszi őket borítóképpel és leírással. A tévén, telefonon és laptopon is elérhetők, otthonról és távolról is.</p>
+        </div>
+        <div class="uc rv">
+          <div class="uc-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h11a1 1 0 0 1 1 1v2.2l4.4-2.6A1 1 0 0 1 22 8.5v7a1 1 0 0 1-1.6.9L16 13.8V16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1zm1 2v6h9V9zm2 1.2a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6z"/></svg></div>
+          <h4>Kamerafelvételek biztonságban</h4>
+          <p>A kamerák közvetlenül a saját tárolóra rögzítenek, nem egy idegen felhőbe. A felvételek automatikusan mentődnek, a régiek pedig maguktól törlődnek, így a tárhely sosem telik meg.</p>
+        </div>
+        <div class="uc rv">
+          <div class="uc-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a7 7 0 0 1 6.9 5.8A5 5 0 0 1 18 19H7a5 5 0 0 1-1.3-9.8A7 7 0 0 1 12 3zm0 2a5 5 0 0 0-4.8 3.6l-.2.8-.8.1A3 3 0 0 0 7 17h11a3 3 0 0 0 .4-6l-.8-.1-.1-.8A5 5 0 0 0 12 5zm-1 4h2v3h2.5L12 15.5 8.5 12H11z"/></svg></div>
+          <h4>Automatikus mentés</h4>
+          <p>A fotók és fontos fájlok magától mentődnek a telefonról és a gépekről, két lemezre egyszerre. Ha egy lemez tönkremegy, az adatok akkor is megmaradnak.</p>
+        </div>
+        <div class="uc rv">
+          <div class="uc-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5h6l2 2h10a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2v11h16V9h-9.8l-2-2zm4 5h8v1.6H8zm0 3h5v1.6H8z"/></svg></div>
+          <h4>Közös mappák és felhős munka</h4>
+          <p>Egy irodában mindenki ugyanazokat a fájlokat éri el, és beállítható, ki mihez fér hozzá. A dokumentumok és táblázatok böngészőből is szerkeszthetők, akár többen egyszerre, a fájlok pedig a saját tárolón maradnak.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="bay" id="rolam">
+    <div class="wrap about rv">
+      <img class="portrait" src="img/rolam.jpg" alt="Tkálecz Milán" width="640" height="640" loading="lazy">
+      <div>
+        <div class="mono" style="margin-bottom:14px">Rólam</div>
+        <h2 class="hello">Szia! <span class="wave" role="img" aria-label="integető kéz">👋</span></h2>
+        <p>Komló és Pécs környékén vállalok munkát. Rendszergazdaként számítógépekkel, hálózatokkal és szerverekkel foglalkozom; emellett weboldalakat készítek, és a RabidFox csapatával fotózom.</p>
+        <p style="margin-top:14px">Ha velem dolgozol, egy emberrel egyeztethetsz a weboldalról, az informatikai feladatokról és – a RabidFox csapatával – a fotózásról is.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="kapcsolat" style="padding-block:24px 0">
+    <div class="contact rv">
+      <div>
+        <div class="mono" style="color:inherit;opacity:.6;margin-bottom:12px">Kapcsolat</div>
+        <h2>Dolgozzunk együtt!</h2>
+        <p class="sub">Írd meg röviden, mire van szükséged. Átbeszéljük a részleteket, és megnézzük, hogyan tudok segíteni.</p>
+        <div class="lines">
+          <div class="line"><span class="mono">Email</span><span class="v">tkaleczmilan@gmail.com</span></div>
+          <div class="line"><span class="mono">Telefon</span><span class="v">+36 30 243 6073</span></div>
+          <div class="line"><span class="mono">Terület</span><span class="v">Komló, Pécs és környéke</span></div>
+          <div class="line"><span class="mono">Számlázás</span><span class="v">Számlaképes vállalkozás</span></div>
+        </div>
+      </div>
+      <form id="f">
+        <label for="nev">Név<input id="nev" name="nev" required></label>
+        <label for="elerh">Telefon vagy email<input id="elerh" name="elerh" required></label>
+        <label for="tema">Téma
+          <select id="tema" name="tema"><option>Weboldal</option><option>Számítógép</option><option>Fotózás</option><option>Egyéb IT</option><option>VHS digitalizálás</option></select></label>
+        <label for="uzenet">Üzenet<textarea id="uzenet" name="uzenet"></textarea></label>
+        <button class="btn" type="submit">Küldés <span class="arr">→</span></button>
+        <p class="note" id="note" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <div class="imp">
+      <span class="mono">Impresszum</span>
+      <p>Tkálecz Milán egyéni vállalkozó · Székhely: [cím] · Adószám: [adószám] · Nyilvántartási szám: [szám] · tkaleczmilan@gmail.com · +36 30 243 6073</p>
+    </div>
+    <span>© 2026 Tkálecz Milán</span>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // before/after
+  var box=document.getElementById('ba'), r=document.getElementById('baRange');
+  function setPos(v){box.style.setProperty('--pos',v+'%')}
+  r.addEventListener('input',function(){setPos(r.value)});
+  setPos(50);
+  if(!reduce && 'IntersectionObserver' in window){
+    var played=false;
+    new IntersectionObserver(function(es,o){es.forEach(function(e){
+      if(e.isIntersecting && !played){played=true;o.disconnect();
+        var t0=null;(function step(t){if(!t0)t0=t;var p=Math.min((t-t0)/1800,1);
+          var v=50+Math.sin(p*Math.PI*2)*28*(1-p);setPos(v.toFixed(1));r.value=v;
+          if(p<1)requestAnimationFrame(step)})(performance.now())}
+    })},{threshold:.5}).observe(box);
+  }
+
+  // name card: types a println, then prints the name
+  (function(){
+    var cmd=document.getElementById('idCmd'),nm=document.getElementById('idName'),role=document.getElementById('idRole');
+    if(reduce||!cmd)return;
+    var c=cmd.textContent,n=nm.textContent;cmd.textContent='';nm.textContent='';role.style.opacity=0;
+    var i=0;
+    (function t1(){cmd.textContent=c.slice(0,++i);if(i<c.length)setTimeout(t1,45);else setTimeout(function(){i=0;t2()},350)})();
+    function t2(){nm.textContent=n.slice(0,++i);if(i<n.length)setTimeout(t2,55);else role.style.opacity=1}
+  })();
+
+  // buttons that preselect the contact topic
+  document.querySelectorAll('[data-tema]').forEach(function(a){
+    a.addEventListener('click',function(){var s=document.getElementById('tema');if(s)s.value=a.getAttribute('data-tema')});
+  });
+
+  // terminal
+  var term=document.getElementById('term');
+  var lines=[
+    ['p','$ ','atadas-elotti-ellenorzes'],
+    ['ok','✓ ','Windows telepítve, frissítve'],
+    ['ok','✓ ','Illesztőprogramok rendben'],
+    ['ok','✓ ','Kártevő-ellenőrzés: tiszta'],
+    ['ok','✓ ','Adatok átmásolva'],
+    ['p','$ ','kész, átadható']
+  ];
+  function full(){term.innerHTML=lines.map(function(l){return '<div><span class="'+l[0]+'">'+l[1]+'</span>'+l[2]+'</div>'}).join('')+'<span class="caret"></span>'}
+  full();
+  if(!reduce && 'IntersectionObserver' in window){
+    var typed=false;
+    new IntersectionObserver(function(es,o){es.forEach(function(e){
+      if(e.isIntersecting && !typed){typed=true;o.disconnect();
+        term.innerHTML='';var i=0,j=0,row=null;
+        (function tick(){
+          if(i>=lines.length){term.insertAdjacentHTML('beforeend','<span class="caret"></span>');return}
+          var l=lines[i];
+          if(j===0){row=document.createElement('div');row.innerHTML='<span class="'+l[0]+'">'+l[1]+'</span><span></span>';term.appendChild(row)}
+          row.lastChild.textContent=l[2].slice(0,++j);
+          if(j>=l[2].length){i++;j=0;setTimeout(tick,l[0]==='ok'?160:380)}else setTimeout(tick,l[0]==='p'?28:12);
+        })();
+      }
+    })},{threshold:.6}).observe(term);
+  }
+
+  // lightbox
+  function openLb(src,alt,back){
+    var lb=document.createElement('div');lb.className='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-label','Kép nagyítva');
+    var btn=document.createElement('button');btn.type='button';btn.textContent='Bezárás ✕';
+    var im=document.createElement('img');im.src=src;im.alt=alt||'';
+    lb.appendChild(btn);lb.appendChild(im);
+    function close(){lb.remove();document.removeEventListener('keydown',esc);if(back)back.focus()}
+    function esc(k){if(k.key==='Escape')close()}
+    lb.addEventListener('click',function(ev){if(ev.target!==im)close()});
+    document.addEventListener('keydown',esc);
+    document.body.appendChild(lb);btn.focus();
+  }
+
+  // featured build gallery
+  var stage=document.getElementById('stage'), imgs=stage.querySelectorAll('img'), th=document.querySelectorAll('#thumbs button'), cap=document.getElementById('cap'), cur=0;
+  function show(n){cur=(n+imgs.length)%imgs.length;imgs.forEach(function(im,i){im.classList.toggle('cur',i===cur)});th.forEach(function(b,i){b.classList.toggle('on',i===cur)});cap.textContent=(cur+1)+' / '+imgs.length}
+  th.forEach(function(b,i){b.addEventListener('click',function(){show(i)})});
+  stage.addEventListener('click',function(){openLb(imgs[cur].src,imgs[cur].alt,stage)});
+  stage.addEventListener('keydown',function(e){
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();openLb(imgs[cur].src,imgs[cur].alt,stage)}
+    if(e.key==='ArrowRight')show(cur+1); if(e.key==='ArrowLeft')show(cur-1);
+  });
+
+  ['builds','gal'].forEach(function(id){
+    document.getElementById(id).addEventListener('click',function(e){
+      var b=e.target.closest('button');if(!b)return;var im=b.querySelector('img');openLb(im.src,im.alt,b);
+    });
+  });
+
+  // active nav
+  var links=[].slice.call(document.querySelectorAll('.links a:not(.nav-cta)'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}
+    })},{rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('section.bay').forEach(function(s){io.observe(s)});
+  }
+
+  document.getElementById('f').addEventListener('submit',function(e){
+    e.preventDefault();
+    document.getElementById('note').textContent='Bemutató űrlap: az élő oldalon ez küldi majd el az üzenetet.';
+  });
+})();
+</script>
+
+</body>
+</html>
