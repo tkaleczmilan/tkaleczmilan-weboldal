@@ -846,17 +846,14 @@ footer .imp p{font-size:13.5px;line-height:1.55}
     document.querySelectorAll('section.bay').forEach(function(s){io.observe(s)});
   }
 
-  // contact form -> email via FormSubmit
+  // contact form -> /api/contact (Resend)
   var form=document.getElementById('f'),note=document.getElementById('note'),sendBtn=document.getElementById('sendBtn');
   form.addEventListener('submit',function(e){
     e.preventDefault();
-    if(form._honey.value)return;
-    var d=new FormData(form);d.delete('_honey');
-    d.append('_subject','Új üzenet a weboldalról: '+(d.get('tema')||''));
-    d.append('_template','table');d.append('_captcha','false');
+    var d={};new FormData(form).forEach(function(v,k){d[k]=v});
     sendBtn.disabled=true;note.textContent='Küldés…';
-    fetch('https://formsubmit.co/ajax/tkaleczmilan@gmail.com',{method:'POST',headers:{'Accept':'application/json'},body:d})
-      .then(function(r){return r.text().then(function(t){var j={};try{j=JSON.parse(t)}catch(_){}if(!r.ok||j.success==='false'||j.success===false){var er=new Error(j.message||('HTTP '+r.status));er.server=true;throw er}return j})})
+    fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
+      .then(function(r){return r.json().catch(function(){return {}}).then(function(j){if(!r.ok||!j.success){var er=new Error(j.error||('HTTP '+r.status));er.server=true;throw er}return j})})
       .then(function(){form.reset();note.textContent='Köszönöm, megkaptam az üzeneted! Hamarosan jelentkezem.'})
       .catch(function(err){console.warn('Űrlap hiba:',err);var why=err&&err.server&&err.message?' ('+err.message+')':'';note.textContent='Nem sikerült elküldeni'+why+'. Írj a tkaleczmilan@gmail.com címre, vagy hívj: +36 30 243 6073.'})
       .finally(function(){sendBtn.disabled=false});

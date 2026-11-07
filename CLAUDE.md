@@ -26,7 +26,7 @@ Szolgáltatások, ebben a sorrendben:
 
 ## Teendők
 1. **Referencia-képernyőképek: kész** (`img/ref-*.jpg`, object-position görgetés hoverre, telefonon automatikusan). A DartsLiga képen a nevek, a szobakód és a QR-kód szándékosan ki van takarva, ezt új kép esetén is meg kell csinálni.
-2. **Kapcsolati űrlap: kész.** FormSubmit AJAX (formsubmit.co/ajax/tkaleczmilan@gmail.com), honeypot, GDPR-jelölőnégyzet. Az első beküldés után a FormSubmit aktiváló emailt küld, azt Milánnak jóvá kell hagynia.
+2. **Kapcsolati űrlap:** `api/contact.js` Vercel-függvény, Resend REST API (mint a rabidfox.hu-n). Kell hozzá a `RESEND_API_KEY` környezeti változó a Vercel-projektben. Feladó alapból `weboldal@rabidfox.hu` (ellenőrzött domain), címzett tkaleczmilan@gmail.com; a `CONTACT_FROM`/`CONTACT_TO` változóval átírható (pl. ha a tkaleczmilan.hu is ellenőrizve lesz a Resendben). Honeypot és GDPR-jelölőnégyzet szerveroldalon is ellenőrizve.
 3. **Impresszum kitöltése.** A láblécben helyőrzők vannak: székhely, adószám, nyilvántartási szám. Ezeket Milán adja meg.
 4. **Adatkezelési tájékoztató: kész** (`adatkezeles.html`), az impresszum-helyőrzőket itt is ki kell tölteni.
 5. **SEO és megosztás: kész.** Cím, leírás, Open Graph, favicon, `ProfessionalService` JSON-LD, sitemap.xml, robots.txt. Domain: tkaleczmilan.hu (beírva).
