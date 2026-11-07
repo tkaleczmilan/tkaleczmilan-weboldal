@@ -856,9 +856,9 @@ footer .imp p{font-size:13.5px;line-height:1.55}
     d.append('_template','table');d.append('_captcha','false');
     sendBtn.disabled=true;note.textContent='Küldés…';
     fetch('https://formsubmit.co/ajax/tkaleczmilan@gmail.com',{method:'POST',headers:{'Accept':'application/json'},body:d})
-      .then(function(r){return r.json().then(function(j){if(!r.ok||j.success==='false'||j.success===false)throw new Error(j.message||'hiba');return j})})
+      .then(function(r){return r.text().then(function(t){var j={};try{j=JSON.parse(t)}catch(_){}if(!r.ok||j.success==='false'||j.success===false){var er=new Error(j.message||('HTTP '+r.status));er.server=true;throw er}return j})})
       .then(function(){form.reset();note.textContent='Köszönöm, megkaptam az üzeneted! Hamarosan jelentkezem.'})
-      .catch(function(){note.textContent='Nem sikerült elküldeni. Írj a tkaleczmilan@gmail.com címre, vagy hívj: +36 30 243 6073.'})
+      .catch(function(err){console.warn('Űrlap hiba:',err);var why=err&&err.server&&err.message?' ('+err.message+')':'';note.textContent='Nem sikerült elküldeni'+why+'. Írj a tkaleczmilan@gmail.com címre, vagy hívj: +36 30 243 6073.'})
       .finally(function(){sendBtn.disabled=false});
   });
 })();
