@@ -137,6 +137,10 @@ section.bay{padding-block:80px;border-top:1px solid var(--line)}
 .viewport{aspect-ratio:16/11;max-width:100%;overflow:hidden;position:relative}
 .page{position:absolute;inset:0 0 auto 0;height:300%;transition:transform 3.2s cubic-bezier(.45,0,.25,1)}
 .ref:hover .page,.ref:focus-visible .page{transform:translateY(-66.6%)}
+.viewport img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0;transition:object-position 6s cubic-bezier(.45,0,.25,1);background:var(--surface)}
+.ref:hover .viewport img,.ref:focus-visible .viewport img{object-position:50% 100%}
+@media (hover:none){.viewport img{animation:refscroll 14s ease-in-out 1s infinite alternate}.hint{display:none}}
+@keyframes refscroll{0%,8%{object-position:50% 0}92%,100%{object-position:50% 100%}}
 .mock{height:100%;display:flex;flex-direction:column;gap:6%;padding:7% 8%;background:var(--surface)}
 .mock .h{height:9%;border-radius:4px;background:var(--hue);display:grid;place-items:center;color:#fff;font-family:var(--f-display);font-weight:700;font-size:13px}
 .mock .l{height:2.2%;border-radius:2px;background:var(--line)}
@@ -427,43 +431,31 @@ footer .imp p{font-size:13.5px;line-height:1.55}
       <div class="refs">
         <a class="ref rv" href="https://polepoint.hu" target="_blank" rel="noopener" style="--hue:#D7262E">
           <div class="browser"><div class="bar"><i></i><i></i><i></i><span>polepoint.hu</span></div>
-            <div class="viewport"><div class="page"><div class="mock">
-              <div class="h">PolePoint</div><div class="l"></div><div class="l s"></div><div class="big">Képernyőkép helye</div>
-              <div class="row"><i></i><i></i><i></i></div><div class="l"></div><div class="l s"></div><div class="big"></div><div class="row"><i></i><i></i><i></i></div><div class="l s"></div>
-            </div></div><span class="hint">vidd rá az egeret</span></div></div>
+            <div class="viewport"><img src="img/ref-polepoint.jpg" alt="A PolePoint főoldala" loading="lazy"><span class="hint">vidd rá az egeret</span></div></div>
           <div class="tags"><span class="star">Saját fejlesztés</span><span>Webalkalmazás</span></div>
           <h3>PolePoint – Forma–1 tippjáték</h3>
           <p>Regisztráció, tippelés, automatikus pontozás, ranglista és privát ligák. A tipp- és pontozási rendszer saját fejlesztésű WordPress-bővítmény.</p>
         </a>
         <a class="ref rv" href="https://rabidfox.hu" target="_blank" rel="noopener" style="--hue:#E8622C">
           <div class="browser"><div class="bar"><i></i><i></i><i></i><span>rabidfox.hu</span></div>
-            <div class="viewport"><div class="page"><div class="mock">
-              <div class="h">RabidFox</div><div class="big">Képernyőkép helye</div><div class="l"></div><div class="l s"></div>
-              <div class="row"><i></i><i></i><i></i></div><div class="big"></div><div class="l"></div><div class="row"><i></i><i></i><i></i></div><div class="l s"></div>
-            </div></div><span class="hint">vidd rá az egeret</span></div></div>
+            <div class="viewport"><img src="img/ref-rabidfox.jpg" alt="A RabidFox főoldala" loading="lazy"><span class="hint">vidd rá az egeret</span></div></div>
           <div class="tags"><span>Portfólió</span><span>Galéria</span></div>
           <h3>RabidFox</h3>
           <p>Fotós-videós csapat oldala szolgáltatásokkal, galériával, árlistával és csapatbemutatóval.</p>
         </a>
         <a class="ref rv" href="https://dartsliga.hu" target="_blank" rel="noopener" style="--hue:#1F8A5B">
           <div class="browser"><div class="bar"><i></i><i></i><i></i><span>dartsliga.hu</span></div>
-            <div class="viewport"><div class="page"><div class="mock">
-              <div class="h">Dartsliga</div><div class="l"></div><div class="row"><i></i><i></i><i></i></div><div class="big">Képernyőkép helye</div>
-              <div class="l s"></div><div class="big"></div><div class="row"><i></i><i></i><i></i></div><div class="l"></div><div class="l s"></div>
-            </div></div><span class="hint">vidd rá az egeret</span></div></div>
+            <div class="viewport"><img src="img/ref-dartsliga.jpg" alt="A DartsLiga bajnoksági nézete (a nevek és a kód kitakarva)" loading="lazy"><span class="hint">vidd rá az egeret</span></div></div>
           <div class="tags"><span class="star">Saját fejlesztés</span><span class="star">Saját szerveren</span><span>Webalkalmazás</span></div>
           <h3>DartsLiga – webes dartsplatform</h3>
           <p>Darts bajnokságok lebonyolítása a weben: csatlakozás kóddal, meccsrögzítés, automatikus pontszámítás, átlagok és statisztikák, PIN-kódos belépés.</p>
         </a>
         <a class="ref rv" href="https://varazsboci.hu" target="_blank" rel="noopener" style="--hue:#C2559B">
           <div class="browser"><div class="bar"><i></i><i></i><i></i><span>varazsboci.hu</span></div>
-            <div class="viewport"><div class="page"><div class="mock">
-              <div class="h">VarázsBoci</div><div class="big">Képernyőkép helye</div><div class="row"><i></i><i></i><i></i></div><div class="l"></div>
-              <div class="l s"></div><div class="big"></div><div class="l"></div><div class="row"><i></i><i></i><i></i></div><div class="l s"></div>
-            </div></div><span class="hint">vidd rá az egeret</span></div></div>
+            <div class="viewport"><img src="img/ref-varazsboci.jpg" alt="A VarázsBoci Kutyakozmetika főoldala" loading="lazy"><span class="hint">vidd rá az egeret</span></div></div>
           <div class="tags"><span>Vállalkozás</span><span>Online foglalás</span></div>
           <h3>VarázsBoci Kutyakozmetika</h3>
-          <p>Veszprémi kutyakozmetika oldala szolgáltatásokkal, online foglalással, kapcsolati űrlappal és térképpel.</p>
+          <p>Siófoki kutyakozmetika oldala szolgáltatásokkal, online foglalással, kapcsolati űrlappal és térképpel.</p>
         </a>
       </div>
 

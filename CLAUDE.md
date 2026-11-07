@@ -25,7 +25,7 @@ Szolgáltatások, ebben a sorrendben:
 - A portré szándékosan fej- és vállkép.
 
 ## Teendők
-1. **Valódi képernyőképek a referenciákhoz.** A négy kártyán (polepoint.hu, rabidfox.hu, dartsliga.hu, varazsboci.hu) most csak egy rajzolt „mock” oldal van. Készíts teljes oldalas képernyőképet mindegyikről (Playwright, 1280 px széles), és cseréld le a `.mock` tartalmát egy `<img>`-re úgy, hogy a hover-legörgetés megmaradjon.
+1. **Referencia-képernyőképek: kész** (`img/ref-*.jpg`, object-position görgetés hoverre, telefonon automatikusan). A DartsLiga képen a nevek, a szobakód és a QR-kód szándékosan ki van takarva, ezt új kép esetén is meg kell csinálni.
 2. **Kapcsolati űrlap: kész.** FormSubmit AJAX (formsubmit.co/ajax/tkaleczmilan@gmail.com), honeypot, GDPR-jelölőnégyzet. Az első beküldés után a FormSubmit aktiváló emailt küld, azt Milánnak jóvá kell hagynia.
 3. **Impresszum kitöltése.** A láblécben helyőrzők vannak: székhely, adószám, nyilvántartási szám. Ezeket Milán adja meg.
 4. **Adatkezelési tájékoztató: kész** (`adatkezeles.html`), az impresszum-helyőrzőket itt is ki kell tölteni.
