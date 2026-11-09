@@ -398,3 +398,8 @@ section.bay.first{border-top:0;padding-top:16px}
 .more b{font-family:var(--f-display);font-size:19px}
 .more small{color:var(--muted);font-size:14px}
 .more-head{margin-bottom:18px}
+.area-vis .reel,.area-vis .fan{transform-box:fill-box;transform-origin:center;animation:reel 3s linear infinite}
+.area:hover .area-vis .reel,.area:hover .area-vis .fan{animation-duration:1s}
+.area-vis .blink{animation:blink 1.1s steps(1) infinite}
+.area-vis svg{transition:transform .4s}
+.area:hover .area-vis svg{transform:scale(1.06)}
