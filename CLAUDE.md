@@ -10,9 +10,17 @@ Szolgáltatások, ebben a sorrendben:
 4. **Egyéb IT** – szerverek, adatmentés, hálózat, karbantartás
 
 ## Jelenlegi állapot
-- `index.html`: egyetlen fájl, minden CSS és JS benne. Nincs build-lépés.
-- `img/`: webre optimalizált képek (max. 1600 px).
-- Animációk: főcím szavanként beúszik, görgetésre beúszó részek (CSS scroll-driven), olvasási csík, referenciakártyák hoverre legörgetnek, terminál-animáció, lapozható galéria a felnis gépről, lightbox.
+- Több oldal, build-lépés nélkül (Vercel `cleanUrls`):
+  - `index.html` – főoldal: hős rész, „Miben segíthetek?” áttekintő kártyák (→ aloldalak), Fotózás (RabidFox, képek), Rólam, Kapcsolat
+  - `weboldalak.html` – referenciák, (rejtett) előtte–utána csúszka, árazás és munkamenet
+  - `szamitogepek.html` – hardver/szoftver, terminál-animáció, Felni PC galéria, gépfotók
+  - `digitalizalas.html` – VHS-digitalizálás, TV-animáció
+  - `it.html` – szerverek, hálózat, „Mit tud egy otthoni szerver?” kártyák
+  - `adatkezeles.html` – adatkezelési tájékoztató
+- Közös: `assets/style.css` (minden stílus), `assets/main.js` (minden szkript, elemenként null-biztos). A nav, a kapcsolat-szakasz és a lábléc minden oldalon szerepel (másolat): ha változik, MINDEN oldalon át kell írni.
+- Az aloldalak `<body data-page-tema="…">` attribútuma előre kiválasztja az űrlap témáját.
+- Mobilon hamburger-menü (`#menuBtn`).
+- `img/`: webre optimalizált képek. `api/contact.js`: űrlap-küldés.
 - Az „Előtte és utána” csúszka kész, de `hidden`, mert még nincs valódi régi–új pár. Ne töröld.
 - Világos és sötét téma is van (CSS változók a `:root`-ban).
 
