@@ -403,3 +403,14 @@ section.bay.first{border-top:0;padding-top:16px}
 .area-vis .blink{animation:blink 1.1s steps(1) infinite}
 .area-vis svg{transition:transform .4s}
 .area:hover .area-vis svg{transform:scale(1.06)}
+/* 5 kártya: felül 2 széles, alul 3 keskenyebb */
+@media (min-width:761px){
+  .areas{grid-template-columns:repeat(6,1fr)}
+  .areas .area{grid-column:span 3}
+  .areas .area:nth-child(n+3){grid-column:span 2}
+  .areas .area:nth-child(n+3) .area-vis{aspect-ratio:4/3}
+  .areas .area:nth-child(n+3) .area-body h3{font-size:21px}
+}
+.area-vis .rec{animation:blink 1.4s steps(1) infinite}
+.area-vis .lens{transform-box:fill-box;transform-origin:center;transition:transform .5s}
+.area:hover .area-vis .lens{transform:scale(1.35)}

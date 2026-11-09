@@ -11,9 +11,10 @@ Szolgáltatások, ebben a sorrendben:
 
 ## Jelenlegi állapot
 - Több oldal, build-lépés nélkül (Vercel `cleanUrls`):
-  - `index.html` – főoldal: hős rész, „Miben segíthetek?” áttekintő kártyák (→ aloldalak), Fotózás (RabidFox, képek), Rólam, Kapcsolat
+  - `index.html` – főoldal: hős rész, „Miben segíthetek?” 5 ikonos kártya (→ aloldalak; felül 2 széles, alul 3), Rólam, Kapcsolat
   - `weboldalak.html` – referenciák, (rejtett) előtte–utána csúszka, árazás és munkamenet
   - `szamitogepek.html` – hardver/szoftver, terminál-animáció, Felni PC galéria, gépfotók
+  - `fotozas.html` – RabidFox szöveg, linkek, galéria
   - `digitalizalas.html` – VHS-digitalizálás, TV-animáció
   - `it.html` – szerverek, hálózat, „Mit tud egy otthoni szerver?” kártyák
   - `adatkezeles.html` – adatkezelési tájékoztató
