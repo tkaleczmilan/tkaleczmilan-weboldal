@@ -40,7 +40,7 @@ Szolgáltatások, ebben a sorrendben:
 4. **Adatkezelési tájékoztató: kész** (`adatkezeles.html`).
 5. **SEO és megosztás: kész.** Cím, leírás, Open Graph, favicon, `ProfessionalService` JSON-LD, sitemap.xml, robots.txt. Domain: tkaleczmilan.hu (beírva).
 6. **Teljesítmény:** képek WebP/AVIF változattal és `srcset`-tel, Lighthouse mobil pontszám 90 fölött.
-7. **Élesítés:** GitHub + Vercel kész (tkaleczmilan-weboldal.vercel.app, rabid-fox csapat). Rackhost DNS beállítva (A 216.198.79.1, www CNAME cname.vercel-dns.com), a .hu regisztráció a Rackhostnál adathiba miatt függőben.
+7. **Élesítés: kész.** https://tkaleczmilan.hu él (Vercel, rabid-fox csapat, GitHub main ágról automatikusan). Rackhost DNS (dns24.hu): A @ 216.198.79.1, CNAME www → cname.vercel-dns.com; a www 308-cal a csupasz domainre irányít. Következő: Google Search Console + sitemap, Resend domain (hello@tkaleczmilan.hu), Vercel Web Analytics.
 
 ## Ellenőrzés
 Minden változtatás után nézd meg az oldalt 390 px (telefon) és 1280 px széles nézetben, világos és sötét módban is. Ne legyen vízszintes görgetés.
