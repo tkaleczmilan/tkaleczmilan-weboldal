@@ -463,3 +463,26 @@ section.bay.first{border-top:0;padding-top:16px}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
 .faq details p{padding:0 0 18px;color:var(--muted);max-width:68ch}
+
+/* ---- tervezési finomítás: kevesebb doboz, visszafogott lekerekítés ---- */
+:root{--r:6px}
+.browser,.ba-box,.offer,.stage,.builds button,.gallery button,.thumbs button,.lb img,.tv-screen,.vhs,.callout,.area,.contact,.term,.uc-ic{border-radius:var(--r)}
+input,select,textarea{border-radius:4px}
+
+/* keret nélküli oszlopok vastag felső vonallal */
+.who div,.panel{background:none;border:0;border-top:2px solid var(--ink);border-radius:0;padding:18px 0 0}
+.who{gap:28px}
+.split{gap:36px}
+.uc{background:none;border:0;border-top:1px solid var(--line);border-radius:0;padding:22px 0 0;transition:border-color .25s}
+.uc:hover{border-top-color:var(--accent);transform:none}
+.usecases{gap:28px 36px}
+.more a{background:none;border:0;border-top:2px solid var(--line);border-radius:0;padding:14px 0 0;transition:border-color .2s}
+.more a:hover{border-top-color:var(--accent)}
+.more{gap:20px 28px}
+
+/* főoldali kártyák: kétszínű saját képek és sötét illusztrációk */
+.area-vis.duo{background:#0D1630}
+.area-vis.duo img{filter:saturate(1.05)}
+.duo-art.duo-b{background:#0D1630;color:#A9B9FF;--tint:#0D1630}
+.duo-art.duo-o{background:#22100A;color:#FFB58C;--tint:#22100A}
+.area:hover{transform:translateY(-3px)}
