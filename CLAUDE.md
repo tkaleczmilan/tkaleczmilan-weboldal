@@ -1,7 +1,7 @@
 # Tkálecz Milán – saját bemutatkozó weboldal
 
 ## Kinek és mire
-Tkálecz Milán egyéni vállalkozó (Komló, Pécs és környéke) saját oldala. Ezzel az oldallal keres meg helyi vállalkozásokat, akiknek elavult a weboldaluk, ezért az oldal maga a legfontosabb referenciája: legyen gyors, mobilon hibátlan és igényes.
+Tkálecz Milán egyéni vállalkozó saját oldala. Mánfáról dolgozik, helyszíni munka Pécs 50 km-es körzetében, távsegítség országosan. Ezzel az oldallal keres meg helyi vállalkozásokat, akiknek elavult a weboldaluk, ezért az oldal maga a legfontosabb referenciája: legyen gyors, mobilon hibátlan és igényes.
 
 Szolgáltatások, ebben a sorrendben:
 1. **Weboldalak** – készítés és karbantartás (fő bevételi irány)
@@ -36,7 +36,7 @@ Szolgáltatások, ebben a sorrendben:
 ## Teendők
 1. **Referencia-képernyőképek: kész** (`img/ref-*.jpg`, object-position görgetés hoverre, telefonon automatikusan). A DartsLiga képen a nevek, a szobakód és a QR-kód szándékosan ki van takarva, ezt új kép esetén is meg kell csinálni.
 2. **Kapcsolati űrlap: működik.** `api/contact.js` Vercel-függvény, Resend REST API. Vercel env: `RESEND_API_KEY` (sensitive), `CONTACT_FROM` = „Tkálecz Milán weboldal <onboarding@resend.dev>” (Resend tesztfeladó, csak a Resend-fiók saját címére küld: tkaleczmilan@gmail.com). A rabidfox.hu ebben a Resend-fiókban NINCS ellenőrizve. Ha a tkaleczmilan.hu él, vedd fel a Resendben (Domains), a DNS-rekordokat a Rackhoston, majd `CONTACT_FROM` → hello@tkaleczmilan.hu. Honeypot és GDPR-jelölőnégyzet szerveroldalon is ellenőrizve.
-3. **Impresszum: kész.** Székhely 7304 Mánfa, Árpád út 8., adószám 92309270-1-22, nyilvántartási szám 62716776. A székhely csak az impresszumban és az adatkezelési tájékoztatóban szerepel, máshol „Komló, Pécs és környéke”. Az adóazonosító jelet SOHA ne tedd ki az oldalra.
+3. **Impresszum: kész.** Székhely 7304 Mánfa, Árpád út 8., adószám 92309270-1-22, nyilvántartási szám 62716776. A teljes cím csak az impresszumban és az adatkezelési tájékoztatóban szerepel. Máshol: „Mánfa · Pécs és 50 km-es körzete · Távsegítség országosan”. Komló a látható szövegből kikerült, a <title>-ökben és a meta-leírásokban SEO miatt maradt. Az adóazonosító jelet SOHA ne tedd ki az oldalra.
 4. **Adatkezelési tájékoztató: kész** (`adatkezeles.html`).
 5. **SEO és megosztás: kész.** Cím, leírás, Open Graph, favicon, `ProfessionalService` JSON-LD, sitemap.xml, robots.txt. Domain: tkaleczmilan.hu (beírva).
 6. **Teljesítmény:** képek WebP/AVIF változattal és `srcset`-tel, Lighthouse mobil pontszám 90 fölött.
